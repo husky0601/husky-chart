@@ -4,5 +4,9 @@ function Chart() {
   return React.createElement("div", null, "Hello Test Chart");
 }
 
-export { Chart };
+var index = {
+  Chart: Chart
+}; // export {default as Chart} from './Chart'
+
+export default index;
 //# sourceMappingURL=index.es.js.map
