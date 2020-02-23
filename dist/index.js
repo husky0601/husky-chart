@@ -8,9 +8,7 @@ function Chart() {
   return React.createElement("div", null, "Hello Test Chart");
 }
 
-var index = {
-  Chart: Chart
-}; // export {default as Chart} from './Chart'
+// export default {Chart}
 
-module.exports = index;
+module.exports = Chart;
 //# sourceMappingURL=index.js.map
