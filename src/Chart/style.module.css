@@ -1,0 +1,28 @@
+.chart {
+    overflow: visible;
+}
+.chartElement{
+    pointer-events: none;
+}
+
+.gridLine{
+    stroke-width: 1px;
+    stroke: #e5e7ed
+}
+.gridLineContainer{
+    transition: transform 0.5s
+}
+.labelContainer{
+    transition: transform 0.5s
+}
+.label{
+    font-size: 12px;
+    color: #525461;
+}
+.label-x{
+    text-anchor: middle;
+}
+.label-y{
+    text-anchor: inherit;
+    dominant-baseline: middle;
+}

@@ -1,14 +1,28 @@
 {
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true, 
+        "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "standard",
+        "eslint:recommended", 
+        "plugin:@typescript-eslint/recommended",
+        "prettier/react"
+    ],
+    "plugins": ["@typescript-eslint", "react"],
     "parserOptions": {
         "sourceType": "module"
     },
     "rules": {
         //your-rules in here
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-empty-function": 1,
+        "@typescript-eslint/no-unnecessary-type-arguments": 1,
+        "@typescript-eslint/no-unnecessary-condition": [1, { "ignoreRhs": true }],
+        "@typescript-eslint/no-explicit-any": "off",
+        "react/prop-types": 0,
+        "import/no-extraneous-dependencies": "error"
     }
 }

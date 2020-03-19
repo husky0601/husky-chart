@@ -1,4 +1,11 @@
-import React, { Component } from 'react';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var React = require('react');
+var React__default = _interopDefault(React);
 
 function unwrapExports (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
@@ -4387,7 +4394,7 @@ function isBetween(a, b, c) {
 function isInvalidLabel(n) {
     return !(typeof n === 'number' || typeof n === 'string');
 }
-class Chart extends Component {
+class Chart extends React.Component {
     constructor(props) {
         super(props);
         // 设置chart属性
@@ -4420,7 +4427,7 @@ class Chart extends Component {
                 };
             };
         };
-        this.svg = React.createRef();
+        this.svg = React__default.createRef();
         this.setProperties();
         this.state = {
             mouseData: {
@@ -4440,22 +4447,22 @@ class Chart extends Component {
         const { xAxis, yAxis, width, height, labelClassName, xLabelsBetween, yLabelsBetween, yLabelsOnRight, hiddenXGridLines, hiddenYGridLines, renderChartElements, renderXGridLine, renderYGridLine, renderYLabel, renderXLabel } = this.props;
         this.setProperties();
         const gridLineStyles = classnames(styles.chartElement, styles.gridLine);
-        return React.createElement("svg", { className: classnames(styles.chart), height: height, width: width, ref: this.svg },
-            React.createElement("g", { id: "x-grid-lines" }, this.xCoordinates.map((xAxisItem, i) => {
+        return React__default.createElement("svg", { className: classnames(styles.chart), height: height, width: width, ref: this.svg },
+            React__default.createElement("g", { id: "x-grid-lines" }, this.xCoordinates.map((xAxisItem, i) => {
                 const lineYStart = this.topMargin;
                 const lineYEnd = height - this.bottomMargin;
-                return ((!hiddenXGridLines || !i) && (React.createElement("g", { key: i, className: styles.gridLineContainer, style: { transform: `translateX(${xAxisItem.svgCoordinate}px)` } }, renderXGridLine
+                return ((!hiddenXGridLines || !i) && (React__default.createElement("g", { key: i, className: styles.gridLineContainer, style: { transform: `translateX(${xAxisItem.svgCoordinate}px)` } }, renderXGridLine
                     ? renderXGridLine(xAxisItem, i, lineYStart, lineYEnd, gridLineStyles)
-                    : React.createElement("line", { y1: lineYStart, y2: lineYEnd, x1: 0, x2: 0, className: gridLineStyles }))));
+                    : React__default.createElement("line", { y1: lineYStart, y2: lineYEnd, x1: 0, x2: 0, className: gridLineStyles }))));
             })),
-            React.createElement("g", { id: "y-grid-lines" }, this.yCoordinates.map((yAxisItem, j) => {
+            React__default.createElement("g", { id: "y-grid-lines" }, this.yCoordinates.map((yAxisItem, j) => {
                 const lineXStart = this.leftMargin;
                 const lineXEnd = width - this.rightMargin;
-                return ((!hiddenXGridLines || j === this.yCoordinates.length - 1) && (React.createElement("g", { key: j, className: styles.gridLineContainer, style: { transform: `translateY(${yAxisItem.svgCoordinate}px)` } }, renderYGridLine
+                return ((!hiddenXGridLines || j === this.yCoordinates.length - 1) && (React__default.createElement("g", { key: j, className: styles.gridLineContainer, style: { transform: `translateY(${yAxisItem.svgCoordinate}px)` } }, renderYGridLine
                     ? renderYGridLine(yAxisItem, j, lineXStart, lineXEnd, gridLineStyles)
-                    : React.createElement("line", { x1: lineXStart, x2: lineXEnd, y1: 0, y2: 0, className: gridLineStyles }))));
+                    : React__default.createElement("line", { x1: lineXStart, x2: lineXEnd, y1: 0, y2: 0, className: gridLineStyles }))));
             })),
-            React.createElement("g", { id: "x-labels" }, this.xCoordinates.map((xAxisItem, i) => {
+            React__default.createElement("g", { id: "x-labels" }, this.xCoordinates.map((xAxisItem, i) => {
                 if (isInvalidLabel(xAxisItem.label))
                     return null;
                 let xCoordinate = xAxisItem.svgCoordinate;
@@ -4465,10 +4472,10 @@ class Chart extends Component {
                         return null;
                     xCoordinate = 0.5 * (xAxisItem.svgCoordinate + nextItem.svgCoordinate);
                 }
-                return React.createElement("g", { key: i, className: styles.labelContainer, style: { transform: `translateX(${xCoordinate}px)` } },
-                    React.createElement("text", { key: i, x: 0, y: height - this.bottomMargin + 20, className: classnames(styles.chartElement, styles.label, styles[`label-x`], labelClassName) }, renderXLabel ? renderXLabel(xAxisItem, i) : xAxisItem.label));
+                return React__default.createElement("g", { key: i, className: styles.labelContainer, style: { transform: `translateX(${xCoordinate}px)` } },
+                    React__default.createElement("text", { key: i, x: 0, y: height - this.bottomMargin + 20, className: classnames(styles.chartElement, styles.label, styles[`label-x`], labelClassName) }, renderXLabel ? renderXLabel(xAxisItem, i) : xAxisItem.label));
             })),
-            React.createElement("g", { id: "y-labels", style: { transform: yLabelsOnRight ? `translateX(${width - this.rightMargin + 10}px)` : '' } }, this.yCoordinates.map((yAxisItem, i) => {
+            React__default.createElement("g", { id: "y-labels", style: { transform: yLabelsOnRight ? `translateX(${width - this.rightMargin + 10}px)` : '' } }, this.yCoordinates.map((yAxisItem, i) => {
                 if (isInvalidLabel(yAxisItem.label))
                     return null;
                 let yCoordinate = yAxisItem.svgCoordinate;
@@ -4478,8 +4485,8 @@ class Chart extends Component {
                         return null;
                     yCoordinate = 0.5 * (yAxisItem.svgCoordinate + nextItem.svgCoordinate);
                 }
-                return React.createElement("g", { key: i, className: styles.labelContainer, style: { transform: `translateY(${yCoordinate}px)` } },
-                    React.createElement("text", { key: i, x: 1, y: 0, className: classnames(styles.chartElement, styles.label, styles[`label-y`], labelClassName) }, renderYLabel ? renderYLabel(yAxisItem, i) : yAxisItem.label));
+                return React__default.createElement("g", { key: i, className: styles.labelContainer, style: { transform: `translateY(${yCoordinate}px)` } },
+                    React__default.createElement("text", { key: i, x: 1, y: 0, className: classnames(styles.chartElement, styles.label, styles[`label-y`], labelClassName) }, renderYLabel ? renderYLabel(yAxisItem, i) : yAxisItem.label));
             })),
             renderChartElements && renderChartElements(this.getCoordinates, this.state.mouseData, height - this.bottomMargin, this.getValues));
     }
@@ -4519,5 +4526,5 @@ Chart.propTypes = {
     renderYLabel: propTypes.func
 };
 
-export { Chart };
-//# sourceMappingURL=index.es.js.map
+exports.Chart = Chart;
+//# sourceMappingURL=index.jsx.map

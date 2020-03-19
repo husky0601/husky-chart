@@ -6,11 +6,14 @@ import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
 import json from 'rollup-plugin-json'
+import typescript from "rollup-plugin-typescript";
+import sourceMaps from "rollup-plugin-sourcemaps";
+import {typescript as TS} from 'typescript'
 
 import pkg from './package.json'
 
 export default {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output:[
         {
             file: pkg.main,
@@ -41,6 +44,11 @@ export default {
         resolve(),
         commonjs({
             include: ["node_modules/**"]
-        })
+        }),
+        typescript({
+            exclude: "node_modules/**",
+            typescript: TS
+        }),
+        sourceMaps()
     ]
 }
